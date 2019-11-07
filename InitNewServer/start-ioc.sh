@@ -14,7 +14,8 @@ if [ $1 = "all" ];
 then
 cd /epics/iocs
 for d in */; do
-    start_ioc d
+    dir=${d%*/}
+    start_ioc $dir
 done
 else
 start_ioc $1

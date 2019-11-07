@@ -11,8 +11,10 @@ function stop_ioc (){
 if [ $1 = "all" ];
 then
 cd /epics/iocs
-for d in */; do
-    stop_ioc d
+for d in */;
+do
+    dir=${d%*/} 
+    stop_ioc $dir
 done
 else
     stop_ioc $1
